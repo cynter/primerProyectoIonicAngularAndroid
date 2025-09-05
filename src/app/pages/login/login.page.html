@@ -1,0 +1,37 @@
+<ion-content class="ion-padding">
+  <div class="center-container">
+    <div class="max-w-md mx-auto">
+      <h1 class="title">Iniciar sesión</h1>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label position="stacked">Correo</ion-label>
+            <ion-input type="email" formControlName="email" autocomplete="email"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="showError('email','required')">El correo es requerido</ion-text>
+          <ion-text color="danger" *ngIf="showError('email','email')">Correo inválido</ion-text>
+
+          <ion-item class="ion-margin-top">
+            <ion-label position="stacked">Clave</ion-label>
+            <ion-input type="password" formControlName="password" autocomplete="current-password"
+              ></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="showError('password','required')">La clave es requerida</ion-text>
+          <ion-text color="danger" *ngIf="showError('password','minlength')">Mínimo 6 caracteres</ion-text>
+        </ion-list>
+
+        <ion-button expand="block" class="ion-margin-top" type="submit" [disabled]="form.invalid || loading()">
+          <ng-container *ngIf="!loading(); else cargando">
+            Entrar
+          </ng-container>
+          <ng-template #cargando>
+            <ion-spinner></ion-spinner>
+          </ng-template>
+        </ion-button>
+      </form>
+
+      <ion-text color="danger" *ngIf="errorMsg() as err" class="ion-margin-top block">{{ err }}</ion-text>
+    </div>
+  </div>
+</ion-content>
