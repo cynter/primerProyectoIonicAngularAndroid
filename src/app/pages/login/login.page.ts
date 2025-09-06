@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     // Si ya hay sesión, entrar directo
     this.auth.getCurrentSession().then(s => {
-      if (s) this.router.navigateByUrl('/tabs/tab1', { replaceUrl: true });
+      if (s) this.router.navigateByUrl('/home', { replaceUrl: true });
     });
   }
 
@@ -51,8 +51,8 @@ export class LoginPage implements OnInit {
     try {
       await this.auth.signIn(email, password);
       // Solo navega si no estás ya en la ruta destino
-      if (this.location.path() !== '/tabs/tab1') {
-        await this.router.navigateByUrl('/tabs/tab1', { replaceUrl: true });
+      if (this.location.path() !== '/home') {
+        await this.router.navigateByUrl('/home', { replaceUrl: true });
       }
     } catch (err: any) {
       this.errorMsg.set(err?.message ?? 'No se pudo iniciar sesión');

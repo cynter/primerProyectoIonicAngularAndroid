@@ -27,13 +27,25 @@
   padding: 16px;
 }
 
-ion-fab {
-  z-index: 100;
-}
-
 .acceso-rapido-fab {
   display: flex;
   justify-content: center;
   margin-top: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+ion-fab {
+  position: static !important;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+.acceso-rapido-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
 }

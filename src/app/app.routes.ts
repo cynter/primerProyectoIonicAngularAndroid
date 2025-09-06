@@ -4,7 +4,8 @@ import { authGuard } from './guards/auth-guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'splash-dynamic', pathMatch: 'full' },
 
-  { path: 'login',
+  {
+    path: 'login',
     loadComponent: () => import('./pages/login/login.page').then(m => m.LoginPage)
   },
 
@@ -31,15 +32,25 @@ export const routes: Routes = [
 
   {
     path: 'register',
-    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
+    loadComponent: () => import('./pages/register/register.page').then(m => m.RegisterPage)
+  },
+
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
   },
 
   {
     path: 'splash-dynamic',
-    loadComponent: () => import('./pages/splash-dynamic/splash-dynamic.page').then( m => m.SplashDynamicPage)
+    loadComponent: () => import('./pages/splash-dynamic/splash-dynamic.page').then(m => m.SplashDynamicPage)
   },
 
   // Ruta comodín
   { path: '**', redirectTo: 'login' },
-  
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
+  },
+
+
 ];

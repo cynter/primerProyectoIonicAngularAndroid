@@ -1,0 +1,19 @@
+<ion-content class="ion-padding">
+  <div class="center-container">
+    <div class="max-w-md mx-auto">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Home</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="logout()">
+              <ion-icon slot="icon-only" name="log-out" style="color: red;"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <div style="padding: 24px 0;">
+        <p *ngIf="(auth.session$ | async) as s">Bienvenido: {{ s.user?.email }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

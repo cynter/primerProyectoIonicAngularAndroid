@@ -39,22 +39,17 @@
         ¿No tienes cuenta? Registrate
       </ion-button>
 
-      <div class="acceso-rapido-fab">
-        <ion-fab horizontal="center" vertical="bottom">
-          <ion-fab-button color="primary" (click)="quickFill('prueba@prueba.com','prueba123')" shape="round">
-            <ion-icon name="person-circle"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="end">
-            <ion-fab-button color="secondary" (click)="quickFill('prueba1@prueba.com','prueba123')" shape="round">
-              <ion-icon name="person"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="tertiary" (click)="quickFill('prueba2@prueba.com','prueba123')" shape="round">
-              <ion-icon name="person"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+      <div class="acceso-rapido-btns ion-margin-top">
+        <ion-button shape="round" color="primary" (click)="quickFill('prueba@prueba.com','prueba123')">
+          <ion-icon slot="icon-only" name="person"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="secondary" (click)="quickFill('prueba1@prueba.com','prueba123')">
+          <ion-icon slot="icon-only" name="person"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="tertiary" (click)="quickFill('prueba2@prueba.com','prueba123')">
+          <ion-icon slot="icon-only" name="person"></ion-icon>
+        </ion-button>
       </div>
-
       <ion-text color="danger" *ngIf="errorMsg() as err" class="ion-margin-top block">{{ err }}</ion-text>
     </div>
 

@@ -1,0 +1,8 @@
+ion-header, ion-toolbar {
+  --background: var(--ion-background-color, #fff);
+  --color: var(--ion-text-color, #222);
+}
+
+ion-title, ion-button {
+  color: var(--ion-text-color, #222);
+}
