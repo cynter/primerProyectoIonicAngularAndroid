@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'splash-dynamic', pathMatch: 'full' },
 
   { path: 'login',
     loadComponent: () => import('./pages/login/login.page').then(m => m.LoginPage)
@@ -32,6 +32,11 @@ export const routes: Routes = [
   {
     path: 'register',
     loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
+  },
+
+  {
+    path: 'splash-dynamic',
+    loadComponent: () => import('./pages/splash-dynamic/splash-dynamic.page').then( m => m.SplashDynamicPage)
   },
 
   // Ruta comodín
