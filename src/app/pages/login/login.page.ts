@@ -1,16 +1,18 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonText, IonList, IonItem, IonLabel, IonButton, IonSpinner, IonInput } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonText, IonList, IonItem, IonLabel, IonButton, IonSpinner, IonInput, IonIcon, IonFabButton, IonFabList, IonFab } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { SupabaseAuth } from 'src/app/services/supabase-auth';
+import { addIcons } from 'ionicons';
+import { eye, eyeOff, person, personCircle } from 'ionicons/icons';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonText, IonContent, IonButton, IonSpinner, IonHeader, IonTitle, IonToolbar, CommonModule, IonList, IonItem, IonLabel, IonInput, FormsModule, ReactiveFormsModule]
+  imports: [IonFab, IonFabList, IonFabButton, IonIcon, IonText, IonContent, IonButton, IonSpinner, IonHeader, IonTitle, IonToolbar, CommonModule, IonList, IonItem, IonLabel, IonInput, FormsModule, ReactiveFormsModule]
 })
 export class LoginPage implements OnInit {
 
@@ -18,6 +20,8 @@ export class LoginPage implements OnInit {
   private router = inject(Router);
   private auth = inject(SupabaseAuth);
   private location = inject(Location);
+  showPassword = false;
+
 
   loading = signal(false);
   errorMsg = signal<string | null>(null);
@@ -56,5 +60,24 @@ export class LoginPage implements OnInit {
       this.loading.set(false);
     }
   }
+  goToRegister() {
+    this.router.navigateByUrl('/register');
+  }
+
+  quickFill(email: string, password: string) {
+    this.form.patchValue({ email, password });
+    this.form.markAllAsTouched();
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
 }
+
+addIcons({
+  'eye': eye,
+  'eye-off': eyeOff,
+  'person': person,
+  'person-circle': personCircle
+});

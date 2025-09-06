@@ -48,4 +48,8 @@ export class SupabaseAuth {
     const { data } = await this.supabase.auth.getSession();
     return data.session ?? null;
   }
+
+  async signUp(email: string, password: string) {
+    return this.supabase.auth.signUp({ email, password });
+  }
 }
