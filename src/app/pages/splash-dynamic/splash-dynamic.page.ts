@@ -38,8 +38,8 @@ export class SplashDynamicPage implements AfterViewInit {
       .duration(1100)
       .easing('cubic-bezier(0.2, 0.9, 0.2, 1)')
       .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(1.5)' },
-        { offset: 0.6, opacity: '1', transform: 'scale(0.6)' },
+        { offset: 0, opacity: '0', transform: 'scale(3.00)' },
+        { offset: 0.6, opacity: '1', transform: 'scale(0.5)' },
         { offset: 1, opacity: '1', transform: 'scale(1.00)' },
       ]);
 

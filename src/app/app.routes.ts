@@ -47,10 +47,5 @@ export const routes: Routes = [
 
   // Ruta comodín
   { path: '**', redirectTo: 'login' },
-  {
-    path: 'home',
-    loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
-  },
-
-
+  
 ];

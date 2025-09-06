@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Forzamos un cuadro perfecto y centrado -->
+    <item
+        android:width="125dp"
+        android:height="200dp"
+        android:gravity="center">
+        <bitmap
+            android:src="@drawable/splash"
+            android:antialias="true"
+            android:filter="true" />
+    </item>
+</layer-list>
